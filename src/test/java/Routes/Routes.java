@@ -9,6 +9,6 @@ public class Routes {
     public static String login = baseUrlQA + "/login";
 
     //assert promotion
-    public static String getAssets = baseUrlQA + "/v1/crm/asset-promotion";
+    public static String getAllAssets = baseUrlQA + "/v1/crm/asset-promotion";
 }
 

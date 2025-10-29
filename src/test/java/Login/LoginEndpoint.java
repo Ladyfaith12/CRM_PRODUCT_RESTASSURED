@@ -17,12 +17,5 @@ public class LoginEndpoint {
         return response;
     }
 
-    public static Response getAssert() {
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .post(Routes.getAssets);
-        return response;
-    }
 
 }
