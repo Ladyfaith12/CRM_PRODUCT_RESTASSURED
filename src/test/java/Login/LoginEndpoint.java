@@ -13,7 +13,15 @@ public class LoginEndpoint {
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
-                .post(Routes.baseUrlQA);
+                .post(Routes.login);
+        return response;
+    }
+
+    public static Response getAssert() {
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .post(Routes.getAssets);
         return response;
     }
 
