@@ -17,5 +17,13 @@ public class AssertPromotionEndpoint {
                 .get(Routes.getAllAssets);
         return response;
     }
+    public static Response getDistricts() {
+    Response response = given()
+            .contentType(ContentType.JSON)
+            .header("Authorization","Bearer "+ accessToken)
+            .when()
+            .get(Routes.getDistricts);
+        return response;
+}
 
 }
