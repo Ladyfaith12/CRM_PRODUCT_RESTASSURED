@@ -11,5 +11,10 @@ public class Routes {
     //assert promotion
     public static String getAllAssets = baseUrlQA + "/v1/crm/asset-promotion";
     public static String getDistricts = baseUrlQA + "/v1/districts";
+    public static String getRegions = baseUrlQA + "/v1/regions";
+    public static String getUpcomingAuctions = baseUrlQA + "/v2/leads/listall/upcomingauctions";
+    public static String getEmployeeInfo = baseUrlQA + "/v1/employees/{employee_Id}";
+
+
 }
 

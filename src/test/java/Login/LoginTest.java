@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
     public static String accessToken;
+    public static String employeeID;
 
     @Test
     public void loginTest(){
@@ -30,9 +31,11 @@ public class LoginTest {
         accessToken = response.jsonPath().getString("access_token");
         String token_type = response.jsonPath().getString("token_type");
         String expires_in = response.jsonPath().getString("expires_in");
+        employeeID = response.jsonPath().getString("account_id");
 
         //custom assetions
         System.out.println(accessToken);
+        System.out.println(employeeID);
         Assert.assertEquals(token_type,"bearer", "Token type should be bearer");
         Assert.assertEquals(expires_in,"7200", "Token should expire in 7200 seconds");
 
