@@ -55,5 +55,18 @@ public class AssertsTest {
 
 
     }
+    @Test(dataProvider = "AssertsDataProvider",)
+    public  void performFilterTest(){
+
+        Response response = AssertPromotionEndpoint.performFilter(payload);
+        response.then().log().body();
+
+        //assertions
+        JsonPath json = response.jsonPath();
+        String actualEmployeeId = json.getString("accountId");
+        Assert.assertEquals(actualEmployeeId, employeeID, "Id's does not match");
+
+
+    }
 
 }

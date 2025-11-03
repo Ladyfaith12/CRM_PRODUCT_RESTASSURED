@@ -51,5 +51,15 @@ public class AssertPromotionEndpoint {
                 .get(Routes.getEmployeeInfo);
         return response;
     }
+    public static Response performFilter(AssertsPayload payload) {
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .pathParams("employee_Id",employeeID)
+                .body(payload)
+                .header("Authorization","Bearer "+ accessToken)
+                .when()
+                .post(Routes.postFilters);
+        return response;
+    }
 
 }
