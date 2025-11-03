@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest {
+    public static String accessToken;
 
     @Test
     public void loginTest(){
@@ -17,6 +18,7 @@ public class LoginTest {
         String password = dotenv.get("password");
 
 
+
         //create payload
         LoginPayload payload = new LoginPayload();
         payload.setUsername(username);
@@ -24,12 +26,13 @@ public class LoginTest {
 
         Response response =  LoginEndpoint.login(payload);
 
-        String account_id = response.jsonPath().getString("account_id");
-        String access_token = response.jsonPath().getString("access_token");
+
+        accessToken = response.jsonPath().getString("access_token");
         String token_type = response.jsonPath().getString("token_type");
         String expires_in = response.jsonPath().getString("expires_in");
 
         //custom assetions
+        System.out.println(accessToken);
         Assert.assertEquals(token_type,"bearer", "Token type should be bearer");
         Assert.assertEquals(expires_in,"7200", "Token should expire in 7200 seconds");
 

@@ -1,21 +1,21 @@
-package Login;
+package Assert_Promotion;
 
 import Routes.Routes;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 
+import static Login.LoginTest.accessToken;
 import static io.restassured.RestAssured.given;
 
-public class LoginEndpoint {
-    public static Response login(LoginPayload payload) {
+public class AssertPromotionEndpoint {
+    public static Response getAsserts() {
         Response response = given()
                 .contentType(ContentType.JSON)
-                .body(payload)
+                .header("Authorization","Bearer "+ accessToken)
                 .when()
-                .post(Routes.login);
+                .get(Routes.getAllAssets);
         return response;
     }
-
 
 }
